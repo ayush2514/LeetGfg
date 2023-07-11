@@ -9,26 +9,30 @@ import java.util.*;
 //User function template for Java
 
 class Solution {
+    
+ public static void swap(int a[], int x, int y) {
+        int temp = a[x];
+        a[x] = a[y];
+        a[y] = temp;
+    }
     public static void sort012(int a[], int n) {
-        int czero = 0;
-        int cone = 0;
-        int ctwo = 0;
-
-        for (int i = 0; i < n; i++) {
-            if (a[i] == 0)
-                czero++;
-            else if (a[i] == 1)
-                cone++;
-            else if (a[i] == 2)
-                ctwo++;
+        int low=0;
+        int mid=0;
+        int high=n-1;
+        while(mid<=high)  {
+            if(a[mid]==0) {
+                swap(a,low,mid);
+                low++;
+                mid++;
+            }
+            else if(a[mid]==1) {
+                mid++;
+            }
+            else {
+                swap(a,mid,high);
+                high--;
+            }
         }
-
-        for (int i = 0; i < czero; i++)
-            a[i] = 0;
-        for (int i = czero; i < czero + cone; i++)
-            a[i] = 1;
-        for (int i = czero + cone; i < czero + cone + ctwo; i++)
-            a[i] = 2;
     }
 }
 
