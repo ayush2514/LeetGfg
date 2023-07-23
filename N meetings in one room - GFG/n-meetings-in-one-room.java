@@ -55,12 +55,12 @@ class Solution
             pair[i]=new Pair(start[i],end[i]);
         }
         Arrays.sort(pair);
-        int count = 1;
-        int end_time = pair[0].et;
+        int endtime=pair[0].et;
+        int count=1;
         for(int i=1;i<n;i++) {
-            if(pair[i].st > end_time) {
+            if(pair[i].st>endtime) {
                 count++;
-                end_time = pair[i].et;
+                endtime=pair[i].et;
             }
         }
         return count;
